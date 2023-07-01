@@ -18,13 +18,24 @@ using Lily.Core.Commands;
 
 namespace Lily.Commands;
 
+/// <summary>
+/// Represents a <see cref="Command"/> that prompts Lily to identify herself.
+/// </summary>
 internal sealed class IdentifyCommand
     : Command
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IdentifyCommand"/> class.
+    /// </summary>
+    /// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging.</param>
     public IdentifyCommand(ILogger<IdentifyCommand> logger)
         : base(logger)
     { }
 
+    /// <summary>
+    /// Executes the <see cref="IdentifyCommand"/>.
+    /// </summary>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     [Command("identify", "Prompts Lily to identify herself.")]
     public async Task Identify()
     {
