@@ -22,7 +22,8 @@ namespace Lily.Core.Commands;
 /// <summary>
 /// Represents a command for execution by Lily.
 /// </summary>
-public abstract class Command : ModuleBase<SocketCommandContext>
+public abstract class Command
+    : ModuleBase<SocketCommandContext>
 {
     /// <summary>
     /// Creates a new <see cref="Command"/> instance.

@@ -19,7 +19,8 @@ using Discord.WebSocket;
 
 namespace Lily.Services;
 
-internal sealed class AnimationService : BackgroundService
+internal sealed class AnimationService
+    : BackgroundService
 {
     private readonly int _totalNicknames;
     private readonly ILogger _logger;
@@ -29,8 +30,7 @@ internal sealed class AnimationService : BackgroundService
 
     public AnimationService(
         DiscordSocketClient client,
-        ILogger<AnimationService> logger
-    )
+        ILogger<AnimationService> logger)
     {
         _client = client;
         _logger = logger;
