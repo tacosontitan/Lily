@@ -19,12 +19,22 @@ using Microsoft.Extensions.Logging;
 
 namespace Lily.Community.Games;
 
+/// <summary>
+/// Represents a <see cref="Command"/> that emulates the class magic 8-ball.
+/// </summary>
 public sealed class EightBallCommand
     : Command
 {
     private readonly Random _random;
 
-    public EightBallCommand(Random random, ILogger<EightBallCommand> logger)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EightBallCommand"/> class.
+    /// </summary>
+    /// <param name="random">The <see cref="Random"/> to use.</param>
+    /// <param name="logger">The <see cref="ILogger{TCategoryName}"/> to use for logging.</param>
+    public EightBallCommand(
+        Random random,
+        ILogger<EightBallCommand> logger)
         : base(logger)
     {
         if (random is null)
@@ -33,13 +43,16 @@ public sealed class EightBallCommand
         _random = random;
     }
 
+    /// <summary>
+    /// Executes the <see cref="EightBallCommand"/>.
+    /// </summary>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     [Command("8ball", "Ask the magic 8-ball a question.")]
-    public async Task Identify()
+    public async Task Ask()
     {
-        Logger.LogInformation("Received invocation for the identify command.");
+        Logger.LogInformation("Received invocation for the `8ball` command.");
         
         string message = "TODO: Implement 8ball command.";
-
         await ReplyAsync(message);
     }
 }
