@@ -31,6 +31,13 @@ internal sealed class CommandService
     private readonly DiscordCommandService _commandService;
     private readonly IServiceProvider _serviceProvider;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="CommandService"/> class.
+    /// </summary>
+    /// <param name="client">The <see cref="DiscordSocketClient"/> to use.</param>
+    /// <param name="commandService">The <see cref="DiscordCommandService"/> to use.</param>
+    /// <param name="serviceProvider">The <see cref="IServiceProvider"/> to use.</param>
+    /// <param name="logger">The <see cref="ILogger"/> to use.</param>
     public CommandService(
         DiscordSocketClient client,
         DiscordCommandService commandService,
@@ -43,6 +50,7 @@ internal sealed class CommandService
         _logger = logger;
     }
     
+    /// <inheritdoc/>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _logger.LogDebug("Starting the command service.");
