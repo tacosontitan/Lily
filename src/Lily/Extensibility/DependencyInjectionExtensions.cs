@@ -19,11 +19,24 @@ using Discord.WebSocket;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
+/// <summary>
+/// Defines extension methods for easing the maintenance of dependency injection.
+/// </summary>
 internal static class DependencyInjectionExtensions
 {
+    /// <summary>
+    /// Adds general dependencies to the <see cref="IServiceCollection"/>.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the dependencies to.</param>
+    /// <returns>The <see cref="IServiceCollection"/> with the dependencies added.</returns>
     internal static IServiceCollection AddGeneralDependencies(this IServiceCollection services) =>
         services.AddSingleton<Random>();
     
+    /// <summary>
+    /// Adds Discord dependencies to the <see cref="IServiceCollection"/>.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the dependencies to.</param>
+    /// <returns>The <see cref="IServiceCollection"/> with the dependencies added.</returns>
     internal static IServiceCollection AddDiscord(this IServiceCollection services)
     {
         var commandServiceConfiguration = new CommandServiceConfig {
@@ -35,6 +48,5 @@ internal static class DependencyInjectionExtensions
         var commandService = new CommandService(commandServiceConfiguration);
         return services.AddSingleton(commandService)
             .AddSingleton<DiscordSocketClient>();
-
     }
 }
