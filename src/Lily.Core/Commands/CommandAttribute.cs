@@ -21,7 +21,8 @@ namespace Lily.Core.Commands;
 /// <summary>
 /// Represents an <see cref="Attribute"/> for marking <see cref="Command"/>s.
 /// </summary>
-public sealed class CommandAttribute : SlashCommandAttribute
+public sealed class CommandAttribute
+    : SlashCommandAttribute
 {
     /// <summary>
     /// Creates a new <see cref="CommandAttribute"/> instance.

@@ -23,7 +23,8 @@ namespace Lily.Services;
 /// <summary>
 /// Defines a <see cref="BackgroundService"/> for handling incoming commands.
 /// </summary>
-internal sealed class CommandService : BackgroundService
+internal sealed class CommandService
+    : BackgroundService
 {
     private readonly ILogger _logger;
     private readonly DiscordSocketClient _client;
@@ -34,8 +35,8 @@ internal sealed class CommandService : BackgroundService
         DiscordSocketClient client,
         DiscordCommandService commandService,
         IServiceProvider serviceProvider,
-        ILogger<CommandService> logger
-    ) {
+        ILogger<CommandService> logger)
+    {
         _client = client;
         _commandService = commandService;
         _serviceProvider = serviceProvider;

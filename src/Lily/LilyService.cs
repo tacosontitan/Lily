@@ -23,7 +23,8 @@ namespace Lily;
 // Disabled because this class is injected into the DI container.
 #pragma warning disable CA1812
 
-internal sealed class LilyService : BackgroundService
+internal sealed class LilyService
+    : BackgroundService
 {
     private readonly DiscordSocketClient _client;
     private readonly CommandService _commandService;

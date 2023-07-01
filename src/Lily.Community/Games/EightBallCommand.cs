@@ -19,12 +19,13 @@ using Microsoft.Extensions.Logging;
 
 namespace Lily.Community.Games;
 
-public sealed class EightBallCommand : Command
+public sealed class EightBallCommand
+    : Command
 {
     private readonly Random _random;
 
-    public EightBallCommand(Random random, ILogger<EightBallCommand> logger) :
-        base(logger)
+    public EightBallCommand(Random random, ILogger<EightBallCommand> logger)
+        : base(logger)
     {
         if (random is null)
             throw new ArgumentNullException(nameof(random));

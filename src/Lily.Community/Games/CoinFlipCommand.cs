@@ -22,7 +22,8 @@ namespace Lily.Community.Games;
 /// <summary>
 /// Represents a command that allows a user to flip a coin.
 /// </summary>
-public sealed class CoinFlipCommand : Command
+public sealed class CoinFlipCommand
+    : Command
 {
     private readonly Random _random;
 
@@ -31,8 +32,8 @@ public sealed class CoinFlipCommand : Command
     /// </summary>
     /// <param name="random">The <see cref="Random"/> instance to use for generating random numbers.</param>
     /// <param name="logger">The <see cref="ILogger{TCategoryName}"/> instance to use for logging.</param>
-    public CoinFlipCommand(Random random, ILogger<CoinFlipCommand> logger) :
-        base(logger)
+    public CoinFlipCommand(Random random, ILogger<CoinFlipCommand> logger)
+        : base(logger)
     {
         if (random is null)
             throw new ArgumentNullException(nameof(random));

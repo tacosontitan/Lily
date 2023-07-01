@@ -18,10 +18,11 @@ using Lily.Core.Commands;
 
 namespace Lily.Commands;
 
-internal sealed class IdentifyCommand : Command
+internal sealed class IdentifyCommand
+    : Command
 {
-    public IdentifyCommand(ILogger<IdentifyCommand> logger) :
-        base(logger)
+    public IdentifyCommand(ILogger<IdentifyCommand> logger)
+        : base(logger)
     { }
 
     [Command("identify", "Prompts Lily to identify herself.")]
