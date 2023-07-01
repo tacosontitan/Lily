@@ -18,5 +18,9 @@
         "tacosontitan",
         "xlily",
         "xunit"
-    ]
+    ],
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/dotnet.yml"
+    ],
+    "dotnet.defaultSolution": "Lily.sln"
 }
