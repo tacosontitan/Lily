@@ -23,6 +23,9 @@ namespace Lily;
 // Disabled because this class is injected into the DI container.
 #pragma warning disable CA1812
 
+/// <summary>
+/// Represents the service for hosting Lily.
+/// </summary>
 internal sealed class LilyService
     : BackgroundService
 {
@@ -31,6 +34,13 @@ internal sealed class LilyService
     private readonly IConfiguration _configuration;
     private readonly ILogger _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="LilyService"/> class.
+    /// </summary>
+    /// <param name="configuration">The <see cref="IConfiguration"/> to use.</param>
+    /// <param name="client">The <see cref="DiscordSocketClient"/> to use.</param>
+    /// <param name="commandService">The <see cref="CommandService"/> to use.</param>
+    /// <param name="logger">The <see cref="ILogger"/> to use.</param>
     public LilyService(
         IConfiguration configuration,
         DiscordSocketClient client,
@@ -43,6 +53,7 @@ internal sealed class LilyService
         _logger = logger;
     }
 
+    /// <inheritdoc/>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         _logger.Log(LogLevel.Information, $"Starting Lily.");
